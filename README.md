@@ -12,7 +12,7 @@ La aplicación está completamente containerizada para garantizar que funcione e
 Se ha puesto especial foco en prevenir vulnerabilidades críticas del **OWASP Top 10**:
 
 * **A03:2021-Injection:** El buscador utiliza **consultas parametrizadas** (`%s`). Esto evita que atacantes puedan ejecutar código malicioso en la base de datos mediante la barra de búsqueda.
-* **A05:2021-Security Misconfiguration:** Se utiliza un archivo `.env` para separar las credenciales del código fuente. Además, el proyecto es compatible con **Podman** para ejecución *rootless*, reduciendo la superficie de ataque.
+* **A05:2021-Security Misconfiguration:** Se utiliza un archivo `.env` para separar las credenciales del código fuente.
 
 ## 🧪 Pruebas y Validación
 Para asegurar la calidad del software, se han implementado dos niveles de testeo:
