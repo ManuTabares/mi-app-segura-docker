@@ -1,0 +1,12 @@
+2026-03-11 19:18:30,264 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.3:5000
+2026-03-11 19:18:30,264 INFO: [33mPress CTRL+C to quit[0m
+2026-03-11 19:18:54,142 INFO: Búsqueda realizada por el usuario: http://localhost:5000/admin
+2026-03-11 19:18:54,164 INFO: 172.18.0.1 - - [11/Mar/2026 19:18:54] "GET /buscar?marca=http://localhost:5000/admin HTTP/1.1" 200 -
+2026-03-11 19:19:23,084 WARNING: Intento de acceso NO AUTORIZADO a la zona /admin
+2026-03-11 19:19:23,085 INFO: 172.18.0.1 - - [11/Mar/2026 19:19:23] "[31m[1mGET /admin HTTP/1.1[0m" 403 -
+2026-03-11 19:20:00,444 INFO: Búsqueda realizada por el usuario: ' OR 1=1 --
+2026-03-11 19:20:00,457 INFO: 172.18.0.1 - - [11/Mar/2026 19:20:00] "GET /buscar?marca='%20OR%201=1%20-- HTTP/1.1" 200 -
+2026-03-11 19:20:06,224 INFO: 172.18.0.1 - - [11/Mar/2026 19:20:06] "GET / HTTP/1.1" 200 -
