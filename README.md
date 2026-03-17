@@ -37,8 +37,8 @@ Mi-primer-docker/
 ├── docker-compose.yml     # Orquestador que levanta la web y la DB
 ├── init.sql               # Script de creación de tablas y datos iniciales
 └── Jenkinsfile            # Definición del flujo de trabajo de Jenkins
-
-3. Configuración y Lanzamiento
+```
+### 3. Configuración y Lanzamiento
 Configura las credenciales: Crea un archivo .env en la raíz con los datos de conexión a la base de datos.
 
 Levanta el entorno: Abre una terminal en la carpeta raíz y ejecuta el comando de construcción:
@@ -49,7 +49,7 @@ Este comando descarga las imágenes, crea la base de datos y activa el servidor 
 
 Verifica el estado: Los contenedores web-1 y db-1 deben aparecer en verde y en estado "Running" en Docker Desktop.
 
-🛡️ Análisis detallado de Seguridad (OWASP Top 10)
+## 🛡️ Análisis detallado de Seguridad (OWASP Top 10)
 Aquí explicamos qué hemos hecho para evitar que nos hackeen la aplicación:
 
 A01:2021 - Control de Acceso Quebrado
@@ -68,21 +68,21 @@ A05:2021 - Configuración Incorrecta de Seguridad
 Funcionamiento: Las aplicaciones suelen dejar pistas a los hackers (versiones de software, errores técnicos).
 
 Solución: 1.  Headers: Forzamos al navegador a no permitir "iframes" (evita que nos clonen la web para robar clicks) y a no adivinar el tipo de archivo (evita ejecución de scripts ocultos).
-2.  Variables de Entorno: Las claves nunca viajan al repositorio de código (GitHub), se quedan en el archivo local .env.
+### 2.  Variables de Entorno: Las claves nunca viajan al repositorio de código (GitHub), se quedan en el archivo local .env.
 
 A09:2021 - Fallos en el Registro y Supervisión
 Funcionamiento: Un ataque que no se registra es un ataque que se repetirá.
 
 Solución: Hemos integrado un sistema de Logging Industrial. Cada vez que alguien busca o intenta entrar en zonas prohibidas, se genera una línea en access.log. Esto permite a un administrador forense revisar qué pasó hace una hora o hace un mes.
 
-🧪 Validación y Auditoría
+## 🧪 Validación y Auditoría
 Automatización con Jenkins (CI/CD)
 El Pipeline de Jenkins (mi-app-segura-docker) garantiza que cada cambio en el código pase los tests unitarios de test_app.py antes de considerarse estable, asegurando que las protecciones no se desactiven por error durante el desarrollo.
 
 Auditoría Externa con Postman
 Para validar que la aplicación cumple con los estándares de OWASP, hemos diseñado una "Suite de Pruebas" automatizada. Cada prueba tiene un objetivo específico de seguridad:
 
-1. Test A: Verificación de Integridad y Hardening (OWASP A05)
+### 1. Test A: Verificación de Integridad y Hardening (OWASP A05)
 ¿Qué hace?: Realiza una petición normal a la página de inicio (/).
 
 Lo que comprobamos (Scripts):
@@ -93,7 +93,7 @@ Security Headers: Aquí es donde verificamos el Hardening (endurecimiento) del s
 
 Conclusión: Si este test sale verde, el servidor está configurado de forma segura frente a ataques de secuestro de sesión básicos.
 
-2. Test B: Simulación de Ataque por Inyección (OWASP A03)
+### 2. Test B: Simulación de Ataque por Inyección (OWASP A03)
 ¿Qué hace?: Envía una cadena maliciosa a través del buscador: {{baseUrl}}/buscar?marca=' OR 1=1 --. Este es el ataque clásico para intentar saltarse el filtro y que la base de datos te devuelva todas las motos de todos los usuarios a la vez.
 
 Lo que comprobamos (Scripts):
@@ -104,7 +104,7 @@ Mitigación: Validamos que la respuesta no contiene errores internos de MySQL. S
 
 Conclusión: Demostramos que la base de datos es inmune a manipulaciones externas vía URL.
 
-3. Test C: Auditoría de Control de Acceso (OWASP A01)
+### 3. Test C: Auditoría de Control de Acceso (OWASP A01)
 ¿Qué hace?: Intenta forzar la entrada a la ruta restringida {{baseUrl}}/admin.
 
 Lo que comprobamos (Scripts):
