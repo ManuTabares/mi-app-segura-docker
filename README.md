@@ -68,7 +68,7 @@ A05:2021 - Configuración Incorrecta de Seguridad
 Funcionamiento: Las aplicaciones suelen dejar pistas a los hackers (versiones de software, errores técnicos).
 
 Solución: 1.  Headers: Forzamos al navegador a no permitir "iframes" (evita que nos clonen la web para robar clicks) y a no adivinar el tipo de archivo (evita ejecución de scripts ocultos).
-### 2.  Variables de Entorno: Las claves nunca viajan al repositorio de código (GitHub), se quedan en el archivo local .env.
+### Variables de Entorno: Las claves nunca viajan al repositorio de código (GitHub), se quedan en el archivo local .env.
 
 A09:2021 - Fallos en el Registro y Supervisión
 Funcionamiento: Un ataque que no se registra es un ataque que se repetirá.
