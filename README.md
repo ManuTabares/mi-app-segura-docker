@@ -13,7 +13,7 @@ Este proyecto es una plataforma web de consulta de motocicletas desarrollada con
 
 ---
 
-## 🚀 Guía de Instalación Paso a Paso (Desde Cero)
+## 🚀 Guía de Instalación Paso a Paso 
 
 ### 1. Requisitos Previos
 Para replicar este entorno en cualquier ordenador, es necesario instalar:
